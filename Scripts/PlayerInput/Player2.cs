@@ -68,6 +68,10 @@ public class Player2 : MonoBehaviour
 
     }
 
+    
+
+#region 움직임 및 플레이어 입력
+
     private void Update()
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
@@ -141,10 +145,9 @@ public class Player2 : MonoBehaviour
         }
     }
 
+#endregion
 
-
-
-
+#region 정규화 알고리즘
 
 
     private void TagDown(RaycastHit hit, Vector3 trmpos, Vector3 hitPos, int i)
@@ -213,20 +216,9 @@ public class Player2 : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, -i, 0));
         }
     }
-    private void AttackDown(RaycastHit hit)
-    {
-        TagDown(hit);
+#endregion
 
-        //���ñ��� 
-
-    }
-
-
-    private void Die()
-    {
-        infomation.bed++;
-        rhythmManager.DiePlayer();
-    }
+#region 노트 판정 판별
 
     private void TagDown(RaycastHit hit)
     {
@@ -250,5 +242,7 @@ public class Player2 : MonoBehaviour
         }
 
     }
+    #endregion
 }
+
 
